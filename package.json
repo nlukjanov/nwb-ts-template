@@ -1,7 +1,7 @@
 {
-  "name": "eod-front",
+  "name": "nwb-typescript-template",
   "version": "1.0.0",
-  "description": "Describe eod-front here",
+  "description": "NWB typescript template",
   "private": true,
   "scripts": {
     "build": "nwb build-react-app",
