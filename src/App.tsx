@@ -7,7 +7,7 @@ const App = (): JSX.Element => {
     <div className="App">
       <div className="App-heading App-flex">
         <h2>
-          Welcome to <span className="App-react">React</span>
+          Welcome to <span className="App-react">React NWB TS</span>
         </h2>
       </div>
       <div className="App-instructions App-flex">
