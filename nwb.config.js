@@ -4,7 +4,7 @@ module.exports = () => {
     npm: {
       esModules: true,
       umd: {
-        global: 'eod-front',
+        global: 'nwb-template',
         externals: {
           react: 'React',
         },
