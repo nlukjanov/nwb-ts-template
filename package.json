@@ -10,7 +10,9 @@
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "lint": "eslint --ext js,jsx,ts,tsx --fix"
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -32,6 +34,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-webpack-plugin": "^2.5.4",
     "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
     "nwb": "0.25.x",
     "prettier": "^2.2.1",
     "ts-loader": "^9.1.1",
