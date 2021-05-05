@@ -1,3 +1,40 @@
-module.exports = {
-  type: 'react-app'
-}
+module.exports = (args) => {
+  return {
+    type: 'react-app',
+    npm: {
+      esModules: true,
+      umd: {
+        global: 'eod-front',
+        externals: {
+          react: 'React'
+        }
+      }
+    },
+    webpack: {
+      config: (config) => {
+        if (config.mode === 'development') {
+          config.entry = './demo/src/index';
+        } else {
+          config.entry = './src/index';
+        }
+        return config;
+      },
+      extra: {
+        resolve: {
+          extensions: ['.ts', '.tsx', '.js', '.jsx']
+        },
+        module: {
+          rules: [
+            { test: /\.tsx$/, loader: 'ts-loader' },
+            {
+              test: /\.(ts|tsx)$/,
+              enforce: 'pre',
+              loader: 'eslint-loader',
+              exclude: /node_modules/
+            }
+          ]
+        }
+      }
+    }
+  };
+};
