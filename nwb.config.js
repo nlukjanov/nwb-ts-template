@@ -1,4 +1,3 @@
-const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports = () => {
   return {
     type: 'react-app',
@@ -13,29 +12,13 @@ module.exports = () => {
     },
     webpack: {
       config: (config) => {
-        if (config.mode === 'development') {
-          config.entry = './demo/src/index';
-        } else {
-          config.entry = './src/index';
-        }
+        config.entry = './src/index';
+        config.resolve.extensions = ['.ts', '.tsx', '.js', '.jsx'];
+        config.module.rules.push({
+          test: /\.tsx?$/,
+          loader: 'ts-loader',
+        });
         return config;
-      },
-      extra: {
-        resolve: {
-          extensions: ['.ts', '.tsx', '.js', '.jsx'],
-        },
-        plugins: [new ESLintPlugin()],
-        // module: {
-        //   rules: [
-        //     {test: /\.tsx$/, loader: 'ts-loader'},
-        //     {
-        //       test: /\.(ts|tsx)$/,
-        //       enforce: 'pre',
-        //       loader: 'eslint-loader',
-        //       exclude: /node_modules/,
-        //     },
-        //   ],
-        // },
       },
     },
   };
