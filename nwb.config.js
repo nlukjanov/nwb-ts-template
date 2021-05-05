@@ -1,4 +1,5 @@
-module.exports = (args) => {
+const ESLintPlugin = require('eslint-webpack-plugin');
+module.exports = () => {
   return {
     type: 'react-app',
     npm: {
@@ -6,9 +7,9 @@ module.exports = (args) => {
       umd: {
         global: 'eod-front',
         externals: {
-          react: 'React'
-        }
-      }
+          react: 'React',
+        },
+      },
     },
     webpack: {
       config: (config) => {
@@ -21,20 +22,21 @@ module.exports = (args) => {
       },
       extra: {
         resolve: {
-          extensions: ['.ts', '.tsx', '.js', '.jsx']
+          extensions: ['.ts', '.tsx', '.js', '.jsx'],
         },
-        module: {
-          rules: [
-            { test: /\.tsx$/, loader: 'ts-loader' },
-            {
-              test: /\.(ts|tsx)$/,
-              enforce: 'pre',
-              loader: 'eslint-loader',
-              exclude: /node_modules/
-            }
-          ]
-        }
-      }
-    }
+        plugins: [new ESLintPlugin()],
+        // module: {
+        //   rules: [
+        //     {test: /\.tsx$/, loader: 'ts-loader'},
+        //     {
+        //       test: /\.(ts|tsx)$/,
+        //       enforce: 'pre',
+        //       loader: 'eslint-loader',
+        //       exclude: /node_modules/,
+        //     },
+        //   ],
+        // },
+      },
+    },
   };
 };
