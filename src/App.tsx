@@ -11,7 +11,7 @@ const App = (): JSX.Element => {
         </h2>
       </div>
       <div className="App-instructions App-flex">
-        <img className="App-logo" src={require('./react.svg')} alt="logo" />
+        <img className="App-logo" src={require('./react.svg').default} alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to hot reload your changes.
         </p>
